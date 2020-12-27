@@ -7,7 +7,7 @@ name = "pypi"
 django = "*"
 django-crispy-forms = "*"
 pillow = "*"
-social-auth-app-django = "*"
+django-currentuser = "*"
 [dev-packages]
 
 [requires]

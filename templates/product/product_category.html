@@ -1,0 +1,43 @@
+{% extends 'salameng/Layout.html' %}
+{% block content %}
+
+    <div class="album py-5">
+        <legend class="border-bottom mb-4">Product Category
+        </legend>
+        <div class="container">
+
+            <div class="row">
+                {% for c in category %}
+                    <div class="col-md-12 col-sm-12">
+
+                        <div class="card mb-4 box-shadow">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-3">
+                                    <img height="150rem" width="150rem" style="float: left;"
+                                         class="rounded-circle border p-1 m-2" src="{{ c.ac_category_image.url }}"
+                                         alt="Card image cap">
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="container-fluid mt-3">
+                                        <h5>Category: {{ c.ac_category_name }}</h5>
+                                        <p>Category Info: {{ c.ac_category_details }}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="container-fluid mt-3">
+                                        <a href="{% url 'product:category_to_info' c.ac_category_name %}"
+                                           class="btn btn-block btn-outline-dark">Show all</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

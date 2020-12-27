@@ -1,0 +1,45 @@
+{% extends 'salameng/Layout.html' %}
+{% block content %}
+
+    <div class="album py-5">
+        <legend class="border-bottom mb-4">Product List sorted by date and category.
+        </legend>
+        <div class="container">
+
+            <div class="row">
+                {% for l in list %}
+                    <div class="col-md-12 col-sm-12">
+
+                        <div class="card mb-4 box-shadow">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-3">
+                                    <img height="150rem" width="150rem" style="float: left;"
+                                         class="rounded-circle border p-1 m-2" src="{{ l.ac_image.url }}"
+                                         alt="Card image cap">
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="container-fluid mt-3">
+                                        <p>Category: {{ l.ac_name }}</p>
+                                        <p>Food Info: {{ l.ac_description|truncatechars:100 }}</p>
+                                        <p>Price: {{ l.ac_normal }} BDT</p>
+                                        <p>Food Added: {{ l.upload_date|date:"d-M-Y" }}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="container-fluid mt-3">
+                                        <a href="{% url 'product:product_details' l.ac_name%}"
+                                           class="btn btn-block  btn-outline-dark">Details</a>
+                                        <a href="#" class="btn btn-block  btn-outline-dark">Dummy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

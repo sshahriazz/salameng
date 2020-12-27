@@ -29,9 +29,7 @@ INSTALLED_APPS = [
 
     'salameng',
     'product',
-    'user',
     'crispy_forms',
-    'social_django'
 
 ]
 
@@ -43,6 +41,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Dev required middleware
+    'django_currentuser.middleware.ThreadLocalUserMiddleware',
 ]
 
 ROOT_URLCONF = 'salameng.urls'

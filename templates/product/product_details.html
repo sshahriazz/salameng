@@ -1,0 +1,24 @@
+{% extends 'salameng/Layout.html' %}
+{% block content %}
+
+    <legend class="border-bottom mb-4">Product Details:
+    </legend>
+
+    {% for info in food %}
+        <div class="card mb-4 box-shadow">
+            <img class="card-img-top" height="250px" src="{{ info.ac_image.url }}"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-text">{{ info.ac_name }}</h4>
+                <p class="card-text">{{ info.ac_description }}</p>
+                <p class="card-text">{{ info.ac_normal_price }} BDT</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                    </div>
+                    <small class="text-muted">Love: {{ info.upload_date }}</small>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
