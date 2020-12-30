@@ -25,8 +25,8 @@ def product_ifo_form_category(request, category_name):
 
 
 def product_details_bosc(request, product_name):
-    food_detail = AC.objects.filter(ac_name__exact=product_name)
-    return render(request, 'product/product_details.html', {'food': food_detail})
+    ac_details = AC.objects.filter(ac_name__exact=product_name)
+    return render(request, 'product/product_details.html', {'ac_details': ac_details})
 
 
 def all_product_view(request):

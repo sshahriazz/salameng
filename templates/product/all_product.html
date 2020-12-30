@@ -1,35 +1,82 @@
 {% extends 'salameng/Layout.html' %}
+{% load static %}
 {% block content %}
-<div class="album py-5">
-            <legend class="border-bottom mb-4">All Product's
-            </legend>
-            <div class="container">
+    <!-- ======= Product Section ======= -->
+    <section id="services" class="services section-bg mt-5">
+        <div class="container">
 
-                <div class="row">
-                    {% for product in products %}
-                        <div class="col-md-4">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="section-title" data-aos="fade-right">
+                        <h2>Air Conditioner's</h2>
+                        <p>Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste
+                            officiis commodi quidem hic quas.</p>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
 
-                            <div class="card mb-4 box-shadow">
-                                <img height="250px" class="card-img-top" src="{{ product.ac_image.url }}"
-                                     alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text">{{ product.ac_name }}</p>
-                                    <p class="card-text">{{ product.ac_description|truncatechars:45 }}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <a href="{% url 'product:product_details' product.ac_name %}"
-                                               class="btn btn-sm btn-outline-secondary">Details</a>
-
+                        {% for product in products %}
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="{{ product.ac_image.url }}" class="card-img p-2 mt-4" alt="ac_image">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><a
+                                                    href="{% url 'product:product_details' product.ac_name %}">{{ product.ac_name }}</a>
+                                            </h5>
+                                            <p class="card-text">{{ product.ac_description }}</p>
+                                            <p class="card-text">{{ product.ac_normal_price }} ৳</p>
+                                            <p class="card-text"><small
+                                                    class="text-muted">{{ product.ac_category.ac_category_name }}</small>
+                                            </p>
                                         </div>
-                                        <small class="text-muted">Love: </small>
                                     </div>
                                 </div>
                             </div>
+                        {% endfor %}
 
-                        </div>
-                    {% endfor %}
 
+                    </div>
                 </div>
             </div>
+
         </div>
+    </section><!-- End Product Section -->
+
 {% endblock %}
+
+{#<div class="album py-5">#}
+{#            <legend class="border-bottom mb-4">All Product's#}
+{#            </legend>#}
+{#            <div class="container">#}
+{##}
+{#                <div class="row">#}
+{#                    {% for product in products %}#}
+{#                        <div class="col-md-4">#}
+{##}
+{#                            <div class="card mb-4 box-shadow">#}
+{#                                <img height="250px" class="card-img-top" src="{{ product.ac_image.url }}"#}
+{#                                     alt="Card image cap">#}
+{#                                <div class="card-body">#}
+{#                                    <p class="card-text">{{ product.ac_name }}</p>#}
+{#                                    <p class="card-text">{{ product.ac_description|truncatechars:45 }}</p>#}
+{#                                    <div class="d-flex justify-content-between align-items-center">#}
+{#                                        <div class="btn-group">#}
+{#                                            <a href="{% url 'product:product_details' product.ac_name %}"#}
+{#                                               class="btn btn-sm btn-outline-secondary">Details</a>#}
+{##}
+{#                                        </div>#}
+{#                                        <small class="text-muted">Love: </small>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{##}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{##}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}

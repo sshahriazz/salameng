@@ -1,43 +1,87 @@
 {% extends 'salameng/Layout.html' %}
 {% block content %}
 
-    <div class="album py-5">
-        <legend class="border-bottom mb-4">Product Category
-        </legend>
+    <!-- ======= Product Section ======= -->
+    <section id="services" class="services section-bg mt-5">
         <div class="container">
 
             <div class="row">
-                {% for c in category %}
-                    <div class="col-md-12 col-sm-12">
+                <div class="col-lg-4">
+                    <div class="section-title" data-aos="fade-right">
+                        <h2>AC Category</h2>
+                        <p>Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste
+                            officiis commodi quidem hic quas.</p>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
 
-                        <div class="card mb-4 box-shadow">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-3">
-                                    <img height="150rem" width="150rem" style="float: left;"
-                                         class="rounded-circle border p-1 m-2" src="{{ c.ac_category_image.url }}"
-                                         alt="Card image cap">
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="container-fluid mt-3">
-                                        <h5>Category: {{ c.ac_category_name }}</h5>
-                                        <p>Category Info: {{ c.ac_category_details }}</p>
+                        {% for pc in category %}
+                            <div class="card mb-3" style="max-width: 540px;min-width: 540px">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="{{ pc.ac_category_image.url }}" class="card-img p-2 mt-4" alt="ac_image">
                                     </div>
-                                </div>
-                                <div class="col-md-3 col-sm-3">
-                                    <div class="container-fluid mt-3">
-                                        <a href="{% url 'product:category_to_info' c.ac_category_name %}"
-                                           class="btn btn-block btn-outline-dark">Show all</a>
-
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><a
+                                                    href="{% url 'product:category_to_info' pc.ac_category_name %}">{{ pc.ac_category_name }}</a>
+                                            </h5>
+                                            <p class="card-text">{{ pc.ac_category_details }}</p>
+                                            <p class="card-text"><small
+                                                    class="text-muted">{{ pc.upload_date }}</small>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
+
 
                     </div>
-                {% endfor %}
-
+                </div>
             </div>
+
         </div>
-    </div>
+    </section><!-- End Product Section -->
 
 {% endblock %}
+
+{#<div class="album py-5">#}
+{#        <legend class="border-bottom mb-4">Product Category#}
+{#        </legend>#}
+{#        <div class="container">#}
+{##}
+{#            <div class="row">#}
+{#                {% for c in category %}#}
+{#                    <div class="col-md-12 col-sm-12">#}
+{##}
+{#                        <div class="card mb-4 box-shadow">#}
+{#                            <div class="row">#}
+{#                                <div class="col-md-3 col-sm-3">#}
+{#                                    <img height="150rem" width="150rem" style="float: left;"#}
+{#                                         class="rounded-circle border p-1 m-2" src="{{ c.ac_category_image.url }}"#}
+{#                                         alt="Card image cap">#}
+{#                                </div>#}
+{#                                <div class="col-md-6 col-sm-6">#}
+{#                                    <div class="container-fluid mt-3">#}
+{#                                        <h5>Category: {{ c.ac_category_name }}</h5>#}
+{#                                        <p>Category Info: {{ c.ac_category_details }}</p>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="col-md-3 col-sm-3">#}
+{#                                    <div class="container-fluid mt-3">#}
+{#                                        <a href="{% url 'product:category_to_info' c.ac_category_name %}"#}
+{#                                           class="btn btn-block btn-outline-dark">Show all</a>#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                {% endfor %}#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
