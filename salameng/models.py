@@ -31,12 +31,12 @@ class NewsLetter(models.Model):
     email = models.EmailField(max_length=100)
 
 
-# pending
+# Done
 class ClientReview(models.Model):
     profile_image = models.ImageField(default='de_t.png', upload_to='team_photo')
     client_title = models.CharField(max_length=250, null=False)
     client_designation = models.CharField(max_length=250, null=False)
-    client_quote = models.CharField(max_length=350)
+    client_quote = models.TextField(max_length=350)
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         super().save()
@@ -48,6 +48,7 @@ class ClientReview(models.Model):
             img.save(self.profile_image.path)
 
 
+# Done
 class OurTeam(models.Model):
     t_name = models.CharField(max_length=150, default='')
     t_image = models.ImageField(default='de_t.png', upload_to='team_photo')
@@ -99,7 +100,9 @@ class HeroPicture(models.Model):
 class ContactUs(models.Model):
     location = models.CharField(max_length=80)
     email = models.EmailField(max_length=300)
-    Phone1 = models.CharField(max_length=11)
+    phone1_owner = models.CharField(max_length=50, default='')
+    phone1 = models.CharField(max_length=11)
+    phone2_owner = models.CharField(max_length=50, default='')
     phone2 = models.CharField(max_length=11)
 
 

@@ -1,68 +1,102 @@
 {% extends 'salameng/Layout.html' %}
 {% block content %}
-
-    <!-- ======= Product Section ======= -->
-    <section id="services" class="services section-bg mt-5">
+    <section id="services" class="services section-bg">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="section-title" data-aos="fade-right">
-                        <h2>AC Details</h2>
-                        <p>Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste
-                            officiis commodi quidem hic quas.</p>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="row">
 
-                        {% for ac_d in ac_details %}
-                            <div class="card mb-3" style="max-width: 540px;">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4">
-                                        <img src="{{ ac_d.ac_image.url }}" class="card-img p-2 mt-4" alt="ac_image">
+                    <div class="section-title" data-aos="fade-right">
+                        <h2>Details</h2>
+                        <p>Product details</p>
+
+
+                        <div class="details-container">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                         aria-orientation="vertical">
+                                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
+                                           href="#v-pills-home" role="tab" aria-controls="v-pills-home"
+                                           aria-selected="true">Details</a>
+                                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
+                                           href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                                           aria-selected="false">Specification</a>
+                                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill"
+                                           href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
+                                           aria-selected="false">Payment's</a>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title"><a
-                                                    href="{% url 'product:product_details' ac_d.ac_name %}">{{ ac_d.ac_name }}</a>
-                                            </h5>
-                                            <p class="card-text">{{ ac_d.ac_description }}</p>
-                                            <p class="card-text">{{ ac_d.ac_normal_price }} ৳</p>
-                                            <p class="card-text"><small
-                                                    class="text-muted">{{ ac_d.ac_category.ac_category_name }}</small>
-                                            </p>
+                                </div>
+                                <div class="col-9">
+                                    <div class="tab-content" id="v-pills-tabContent">
+                                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                                             aria-labelledby="v-pills-home-tab">
+                                            <img height="" width="" src="" alt="Poster-Image">
+                                        </div>
+                                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                                             aria-labelledby="v-pills-profile-tab">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">First</th>
+                                                    <th scope="col">Last</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                                             aria-labelledby="v-pills-settings-tab">
+                                            <div class="card border-primary mb-3" style="max-width: 18rem;">
+                                                <div class="card-header">Header</div>
+                                                <div class="card-body text-primary">
+                                                    <h5 class="card-title">Primary card title</h5>
+                                                    <p class="card-text">Some quick example text to build on the card
+                                                        title and make up the bulk of the card's content.</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        {% endfor %}
-
-
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
-    </section><!-- End Product Section -->
+    </section><!-- End Services Section -->
+
+
 
 {% endblock %}
-{#<legend class="border-bottom mb-4">Product Details:#}
-{#</legend>#}
-{##}
-{#{% for info in ac_details %}#}
-{#    <div class="card mb-4 box-shadow">#}
-{#        <img class="card-img-top" height="250px" src="{{ info.ac_image.url }}"#}
-{#             alt="Card image cap">#}
-{#        <div class="card-body">#}
-{#            <h4 class="card-text">{{ info.ac_name }}</h4>#}
-{#            <p class="card-text">{{ info.ac_description }}</p>#}
-{#            <p class="card-text">{{ info.ac_normal_price }} BDT</p>#}
-{#            <div class="d-flex justify-content-between align-items-center">#}
-{#                <div class="btn-group">#}
-{#                </div>#}
-{#                <small class="text-muted">Love: {{ info.upload_date }}</small>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#{% endfor %}#}
+{#          {% for ac_d in ac_details %}#}
+{#                            <div class="card mb-3" style="max-width: 540px;">#}
+{#                                <div class="row no-gutters">#}
+{#                                    <div class="col-md-4">#}
+{#                                        <img src="{{ ac_d.ac_image.url }}" class="card-img p-2 mt-4" alt="ac_image">#}
+{#                                    </div>#}
+{#                                    <div class="col-md-8">#}
+{#                                        <div class="card-body">#}
+{#                                            <h5 class="card-title"><a#}
+{#                                                    href="{% url 'product:product_details' ac_d.ac_name %}">{{ ac_d.ac_name }}</a>#}
+{#                                            </h5>#}
+{#                                            <p class="card-text">{{ ac_d.ac_description }}</p>#}
+{#                                            <p class="card-text">{{ ac_d.ac_normal_price }} ৳</p>#}
+{#                                            <p class="card-text"><small#}
+{#                                                    class="text-muted">{{ ac_d.ac_category.ac_category_name }}</small>#}
+{#                                            </p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
